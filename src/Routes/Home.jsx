@@ -1,26 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
 import Card from '../Components/Card';
+import { ContextGlobal } from '../Components/utils/global.context';
 
 const Home = () => {
-  const [dentists, setDentists] = useState([]);
-
-  useEffect(() => {
-    // Obtener datos de la API
-    axios('https://jsonplaceholder.typicode.com/users')
-      .then(response => {
-        setDentists(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+  const { state } = useContext(ContextGlobal);
 
   return (
-    <main className="">
+    <main>
       <h1>Home</h1>
-      <div className='card-grid'>
-        {dentists.map(dentist => (
+      <div className="card-grid">
+        {state.dentists.map(dentist => (
           <Card
             key={dentist.id}
             name={dentist.name}
@@ -34,3 +23,4 @@ const Home = () => {
 };
 
 export default Home;
+

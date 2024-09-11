@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Card from '../Components/Card';
+import { ContextGlobal } from '../Components/utils/global.context';
 
 const Favs = () => {
   const [favDentists, setFavDentists] = useState([]);
+  const { state } = useContext(ContextGlobal);
 
   useEffect(() => {
-    // Obtener los dentistas destacados del localStorage
     const savedFavs = JSON.parse(localStorage.getItem('favDentists')) || [];
     setFavDentists(savedFavs);
   }, []);
@@ -32,5 +33,6 @@ const Favs = () => {
 };
 
 export default Favs;
+
 
 

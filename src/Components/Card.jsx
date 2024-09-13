@@ -17,11 +17,14 @@ const Card = ({ name, username, id }) => {
       <h2>{name}</h2>
       <p>{username}</p>
       <Link to={`/dentist/${id}`} className="details-link">View Details</Link>
-      <button onClick={addFav} className="favButton">Add fav</button>
+      <div className="card-buttons">
+        <button onClick={addFav} className="favButton">Add fav</button>
+      </div>
     </div>
   );
 };
 
 export default Card;
+
 
 

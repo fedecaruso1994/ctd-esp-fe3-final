@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,38 +9,43 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-.favButton{
-  background-color: rgba(136, 136, 136, 0.116);
-  padding: 10px;
-  border: none;
-  width: 100%;
-  cursor: pointer;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-h1{
+h1 {
   text-align: center;
 }
 
-nav{
+/* Estilos para el Navbar */
+nav {
   display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid var(--border-color);
+  width: 100%;
 }
 
-a{
-  color: #000;
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: var(--navbar-link-color);
   text-decoration: none;
-  margin: 5px;
-  cursor: pointer;
+  font-weight: bold;
 }
-a:hover{
-  color: rgb(136, 136, 136);
-} 
 
+nav a:hover {
+  color: var(--navbar-link-hover-color);
+}
+
+/* Estilos para el Footer */
 footer {
   display: flex;
   justify-content: center;
@@ -52,55 +58,110 @@ footer {
   margin-top: 2rem;
 }
 
-footer > img{
+footer > img {
   width: 200px;
   margin: 0;
 }
-footer > p{
+
+footer > p {
   margin: 0;
   padding-top: 0.7rem;
 }
 
-form{
+/* Estilos mejorados para las Cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  width: 300px;
-  height: 100px;
-  margin: 0 auto;
+  justify-content: space-between;
+  height: 250px; /* Ajusta la altura según tus necesidades */
 }
 
-.card{
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.card p {
+  margin: 0.5rem 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajusta el tamaño mínimo si es necesario */
+  gap: 1.5rem; /* Aumenta el espacio entre las tarjetas */
+}
+
+/* Asegúrate de que los botones estén en la parte inferior de la tarjeta */
+.card .card-buttons {
+  margin-top: auto; /* Empuja los botones hacia la parte inferior de la tarjeta */
+}
+
+.card .card-buttons button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+
+/* Estilos para el Formulario */
+form {
+  background: var(--form-bg);
+  border: 1px solid var(--form-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
-  align-items: center;
-  width: 200px;
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  border: 0.5px solid rgb(136, 136, 136);
 }
 
-.card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
+form div {
+  margin-bottom: 1rem;
 }
 
-.card-grid{
-  display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-  width: 90vw;
-  height: auto;
-  flex-wrap: wrap;
-  margin: 0 auto;
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
+form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+}
+
+form button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Estilos para el Table */
 table {
- border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    display: table;
-    border: 1px solid #ccc;
-
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ccc;
 }
 
 td, th {
@@ -113,12 +174,36 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark{
-  background-color: #12121296;
+/* Estilos para el tema oscuro */
+.dark {
+  --navbar-bg: #121212;
+  --navbar-link-color: #e0e0e0;
+  --navbar-link-hover-color: #ff6347;
+  --border-color: #333;
+  --card-bg: #1e1e1e;
+  --card-border: #444;
+  --form-bg: #2c2c2c;
+  --form-border: #444;
+  --input-border: #555;
+  --button-bg: #007bff;
+  --button-text: #fff;
+  --button-hover-bg: #0056b3;
+  background-color: #121212;
   color: white;
 }
-.dark > a {
+
+.dark a {
   color: white;
+}
+
+.dark .card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+}
+
+.dark form {
+  background: var(--form-bg);
+  border: 1px solid var(--form-border);
 }
 
 .error-message {
@@ -128,22 +213,45 @@ tr:nth-child(even) {
 .success-message {
   color: green;
 }
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+/* Detail.css */
+
+/* Contenedor del detalle */
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--form-bg);
+  min-height: 100vh;
 }
 
-.dark {
-  background-color: #12121296;
-  color: white;
+/* Tarjeta de detalle */
+.detail-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.dark a {
-  color: white;
+/* Título del detalle */
+.detail-title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--navbar-link-color);
 }
 
-/* Resto de tu CSS permanece igual */
+/* Estilos para los párrafos dentro de la tarjeta */
+.detail-card p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.detail-card strong {
+  font-weight: bold;
+}
+

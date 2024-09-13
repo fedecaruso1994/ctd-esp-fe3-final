@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 
-
 const Detail = () => {
   const { id } = useParams();
   const [dentist, setDentist] = useState(null);
@@ -16,15 +15,15 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="detail-container">
       {dentist ? (
-        <>
-          <h1>Detail Dentist</h1>
+        <div className="detail-card">
+          <h1 className="detail-title">Detail Dentist</h1>
           <p><strong>Name:</strong> {dentist.name}</p>
           <p><strong>Email:</strong> {dentist.email}</p>
           <p><strong>Phone:</strong> {dentist.phone}</p>
           <p><strong>Website:</strong> {dentist.website}</p>
-        </>
+        </div>
       ) : (
         <p>Loading...</p>
       )}
@@ -33,3 +32,4 @@ const Detail = () => {
 };
 
 export default Detail;
+
